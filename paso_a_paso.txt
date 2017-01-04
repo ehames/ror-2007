@@ -1,0 +1,90 @@
+1- Crear aplicación 
+	rails sample
+
+2- Iniciar el servidor de aplicación
+	./script/server
+
+3- Probar en el browser
+	0.0.0.0:3000
+
+4- generar un controlador
+	./script/generate controller Tasks
+
+5- Probar en el browser
+	0.0.0.0:3000/task
+
+6- crear una acción
+	def index
+		render_text 'Hello World'
+	end
+
+7- eliminar acción
+
+8- crear index.rhtml en views/task/ con "hello world"
+
+9- criticar XML y abrir config/database.yml
+   reiniciar el server
+
+10- crear/mostrar tabla en la base de datos
+
+11- crear modelo para tasks
+	./script/generate model Task
+
+12- mostrar el archivo generado en model
+
+13- generar andamio para task en el controller
+	scaffold :task
+
+14- volver al browser y mostrar
+	0.0.0.0:3000/task
+	
+	chanan!
+
+15- no nos gusta como queda la descripcion como var char, probemos text
+
+16- agreguemos datetime
+
+17- editamos en la barra del navegador
+
+18- editar task model para poner validación
+	validates_presence_of :name
+
+19- intentar guardar y ver que da error
+
+20- meter nombre y ver que anda
+
+21- tirar todo y generar scaffold
+	./script/generate scaffold Task
+
+22- crear estudiantes
+	./script/generate model Student
+
+23- agregar andamio
+	./script/generate scaffold Student
+
+24- agregamos campo student_id a la tabla de tasks
+
+25- en el modelo de student agregamos
+	has_many :task
+
+26- en el modelo de task agregamos
+	belongs_to :student
+
+27- en show.rhtml de student mostramos la lista de tareas
+	<% for task in @student.tasks %>
+	<%= task.name %>
+	<% end %>
+
+28- y en new.rhtml de tasks agregamos el estudiante 
+	<p>Asignado a<br>
+  	<select id="student_id" name="tasks[student_id]">
+	<% for student in @students %>
+		<option value="<%=student.id %>"><%= student.name %></option>
+	<% end %>
+	</select>
+	</p>
+
+
+
+
+
